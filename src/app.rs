@@ -8,7 +8,7 @@ pub fn App() -> Element {
         div { class: "app-container",
             Navbar {},
             main {
-                Chat {}
+                TodoList {  }
             }
         }
     }
