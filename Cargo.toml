@@ -20,6 +20,8 @@ winit = "0.30.11"
 chrono = { version = "0.4", features = ["serde"] }
 tokio = { version = "1.46.1", features = ["rt", "time", "macros"] }
 futures = "0.3"
+dioxus-router = "0.6.3"
+
 
 
 [workspace]
