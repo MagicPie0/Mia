@@ -1,8 +1,15 @@
 use dioxus::prelude::*;
 use crate::styles::navbar::navbar_styles;
+use dioxus_router::prelude::*;
+use crate::routes::Route;
 
 #[component]
 pub fn Navbar() -> Element {
+    let route = use_route::<Route>();
+    fn is_active(route: &Route, target: &Route) -> &'static str{
+        if route == target {"active"} else {""}
+    } 
+
     rsx! {
         style { "{navbar_styles()}" }
         nav {
@@ -10,19 +17,21 @@ pub fn Navbar() -> Element {
                 div { class: "nav-header",
                     h2 { "Mia" }
                 }
-                a { 
-                    href: "#chat", 
-                    class: "active",
+                Link { 
+                    to: Route::Chat {  }, 
+                    class: is_active(&route, &Route::Chat {}),
                     i { "💬" }
                     "Chat with Mia" 
                 }
-                a { 
-                    href: "#toDo",
+                Link { 
+                    to: Route::TodoList {  },
+                    class: is_active(&route, &Route::TodoList {}),
                     i { "✅" }
                     "To-Do List" 
                 }
-                a { 
-                    href: "#emails",
+                Link { 
+                    to: Route::EmailClient {  },
+                    class: is_active(&route, &Route::EmailClient {}),
                     i { "📧" }
                     "My Emails" 
                 }

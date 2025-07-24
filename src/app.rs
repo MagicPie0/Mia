@@ -1,14 +1,14 @@
 use dioxus::prelude::*;
+use dioxus_router::prelude::Outlet;
 use crate::components::navbar::Navbar;
-use crate::components::chat::Chat;
-use crate::components::todo::TodoList;
+use crate::routes::Route;
 
 pub fn App() -> Element {
     rsx! {
         div { class: "app-container",
             Navbar {},
             main {
-                TodoList {  }
+                Outlet::<Route> {}
             }
         }
     }
