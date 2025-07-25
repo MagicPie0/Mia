@@ -35,8 +35,9 @@ pub fn Navbar() -> Element {
                     i { "📧" }
                     "My Emails" 
                 }
-                a { 
-                    href: "#passwords",
+                Link { 
+                    to: Route::PasswordManager {  },
+                    class: is_active(&route, &Route::PasswordManager {}),
                     i { "🔑" }
                     "My Passwords" 
                 }
